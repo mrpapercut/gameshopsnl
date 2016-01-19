@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(-1);
+error_reporting(0);
 
 if (isset($_POST['query']) && isset($_POST['shop'])) {
 	require('src/php/search.php');

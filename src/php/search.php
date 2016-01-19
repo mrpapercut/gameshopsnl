@@ -18,10 +18,12 @@ class Search {
     }
 
     public function __construct($query, $shop) {
-		echo __DIR__;
         spl_autoload_register('Search::autoloader');
 
-		die(json_encode($this->search($query, $shop)));
+		die(json_encode(array(
+			'shop' => $shop,
+			'results' => $this->search($query, $shop)
+		)));
     }
 
 	private function search($query, $shop) {

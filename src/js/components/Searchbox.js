@@ -1,27 +1,29 @@
 'use strict';
 
-import React, {DOM, createClass, PropTypes as PT} from 'react';
+import React, {DOM, createElement, PropTypes as PT} from 'react';
 
-const {div, input} = DOM;
+const {div, form, button, input} = DOM;
 
-const Searchbox = createClass({
-
-	propTypes: {
-		onChange: PT.func.isRequired
+const Searchbox = ({onChange, onSubmit}) => div({
+	className: 'searchbox'
+},
+	form({
+		onSubmit: onSubmit
 	},
+		input({
+			type: 'text',
+			onChange: onChange,
+			placeholder: 'search'
+		}),
+		button({
+			className: 'submit'
+		})
+	)
+);
 
-	render() {
-		return div({
-			className: 'searchbox'
-		},
-			input({
-				type: 'text',
-				ref: 'searchfield',
-				onChange: this.props.onChange,
-				placeholder: 'search'
-			})
-		);
-	}
-});
+Searchbox.propTypes = {
+	onChange: PT.func.isRequired,
+	onSubmit: PT.func.isRequired
+};
 
 export default Searchbox;
