@@ -3,6 +3,8 @@
 import React, {DOM, createClass, createFactory} from 'react';
 import ReactDOM from 'react-dom';
 
+require('../src/scss/app.scss');
+
 import Searchbox from './components/Searchbox';
 
 const {div} = DOM;
