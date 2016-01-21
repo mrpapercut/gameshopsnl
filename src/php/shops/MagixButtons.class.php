@@ -5,7 +5,7 @@ if (!class_exists('Fetcher')) {
 
 class MagixButtons extends Fetcher {
 
-	public $url = 'http://magixbuttons.com/shop/game?items_per_page=10&search_api_views_fulltext=';
+	public $url = 'http://magixbuttons.com/shop?items_per_page=24&search_api_views_fulltext=';
 
 	public function query($query) {
 		$html = $this->fetch($this->url.urlencode($query));
@@ -54,7 +54,7 @@ class MagixButtons extends Fetcher {
 	}
 }
 
-if (str_replace('\\', '/', __FILE__) === $_SERVER['SCRIPT_FILENAME']) {
+if (strpos(str_replace('\\', '/', __FILE__), $_SERVER['SCRIPT_NAME'])) {
 	$class = new MagixButtons();
 	return $class->query("kirby's adventure");
 }
