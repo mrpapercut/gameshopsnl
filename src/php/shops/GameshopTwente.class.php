@@ -11,7 +11,7 @@ class GameshopTwente extends Fetcher {
 	public function query($query) {
 		$html = $this->fetch($this->url.urlencode(str_replace(' ', '_', $query)));
 
-		return $this->parseResults($html);
+		return $html; // $this->parseResults($html);
 	}
 
 	public function parseResults($html) {

@@ -2,10 +2,10 @@
 
 class Search {
 	public $shops = array(
-		'GamelandGroningen',
+		/*'GamelandGroningen',
 		'MagixButtons',
 		'Nedgame',
-		'RetroGameFreak',
+		'RetroGameFreak',*/
 		'GameshopTwente'
 	);
 
@@ -30,6 +30,8 @@ class Search {
 		if (in_array($shop, $this->shops)) {
 			$shopObj = new $shop();
 			return $shopObj->query($query);
+		} else {
+			return array();
 		}
 	}
 }

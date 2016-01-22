@@ -1,9 +1,9 @@
 'use strict';
 
 export const SHOPS = [
+	'GameshopTwente'/*,
 	'GamelandGroningen',
-	'GameshopTwente',
 	'MagixButtons',
 	'Nedgame',
-	'RetroGameFreak'
+	'RetroGameFreak'*/
 ];
