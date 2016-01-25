@@ -4,7 +4,7 @@ import HTMLparser from 'htmlparser';
 
 import shopHandlers from './shopHandlers';
 
-export const parseHTML = (html, shop) => {
+export const parseHTML = (html, shop, key) => {
 	const Handler = new HTMLparser.DefaultHandler(err => err ? console.warn(err) : null);
 	const Parser = new HTMLparser.Parser(Handler);
 	Parser.parseComplete(html);

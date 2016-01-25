@@ -11,11 +11,8 @@ import {parseHTML} from '../util/parseHTML';
 
 const {div, a} = DOM;
 
-const rand = () => btoa(+new Date / Math.random()).substr(6, 6);
-
 const Result = ({image, platform, price, title, url}) => div({
-	className: 'result',
-	key: rand()
+	className: 'result'
 },
 	a({
 		href: url
@@ -24,18 +21,17 @@ const Result = ({image, platform, price, title, url}) => div({
 
 const result = createFactory(Result);
 
-const Resultgroup = ({shop, results}) => {
-	console.log(parseHTML(results, shop));
-	return div({
-		className: 'resultgroup',
-		key: rand()
-	},
-		div({
-			className: 'resultheader'
-		}, shop)
-		//parseHTML(results, shop).map(result)
-	);
-}
+const Resultgroup = ({shop, results}) => div({
+	className: 'resultgroup'
+},
+	div({
+		className: 'resultheader'
+	}, shop),
+	parseHTML(results, shop).map((res, i) => {
+		res.key = i;
+		return result(res);
+	})
+);
 
 Resultgroup.propTypes = {
 	shop: PT.string.isRequired,

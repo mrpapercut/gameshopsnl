@@ -66,7 +66,10 @@ const App = createClass({
 				activeShops: this.state.activeShops,
 				onSetShops: this.setShops
 			}),
-			this.state.results.map(resultgroup)
+			this.state.results.map((res, i) => {
+				res.key = i;
+				return resultgroup(res);
+			})
 		);
 	}
 });
